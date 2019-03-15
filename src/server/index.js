@@ -1,13 +1,24 @@
 const express = require('express'),
-    express_graphql = require('express-graphql'),
     cors = require('cors'),
-    port = process.env.PORT || 8080,
-    app = express();
+    bodyParser = require('body-parser'),
+    app = express(),
+    mongoose = require('mongoose'),
+    URL = `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASS}@cluster0-3zapg.mongodb.net/${process.env.MONGO_DB}?retryWrites=true`,
+    graphqlHTTP = require('express-graphql'),
+    schema = require('./graphql/schemas/index'),
+    rootValue = require('./graphql/resolvers/index');
 
-app.use(cors());
-app.use('/graphql', express_graphql({
+const auth = require('./middleware/authentication');
 
+
+app.use(cors(), bodyParser.json());
+app.use(auth);
+app.use('/graphql', graphqlHTTP({
+    schema,
+    rootValue,
+    graphiql: true
 }));
 
-app.listen(port, _ => { console.log(`listen on port ${port}`); });
-
+mongoose.connect(URL, { useNewUrlParser: true }).then(_ => {
+    app.listen(process.env.PORT, _ => { console.log(`listen on port ${process.env.PORT}`); });
+}).catch(err => { console.log(err) })
