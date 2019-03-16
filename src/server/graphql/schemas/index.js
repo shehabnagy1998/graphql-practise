@@ -41,7 +41,7 @@ const schema = buildSchema(`
             events: [Event!]!
             users: [User!]!
             bookings: [Booking!]!
-            login(email: String!, password: String!): AuthData
+            login(userInput: UserInput!): AuthData
         }
         type RootMutation {
             createEvent(eventInput: EventInput!): Event

@@ -38,10 +38,10 @@ const userResolver = {
         } catch (err) { console.log(err) }
     },
 
-    login: async ({ email, password }) => {
-        const user = await User.findOne({ email: email });
+    login: async (args) => {
+        const user = await User.findOne({ email: args.userInput.email });
         if (!user) { throw new Error('email is not exist') };
-        if (password != user.password) { throw new Error('password is not correct') };
+        if (args.userInput.password != user.password) { throw new Error('password is not correct') };
         const token = await jwt.sign({ userId: user.id, email: user.email }, 'mysuperstring',
             { expiresIn: '2h' }
         );
