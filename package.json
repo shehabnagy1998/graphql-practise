@@ -1,45 +1,25 @@
 {
-  "name": "upwork-project",
-  "version": "0.1.0",
-  "private": true,
+  "name": "graphql-react-event-booking",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "author": "",
+  "license": "ISC",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
-    "bootstrap": "^4.3.1",
-    "cors": "^2.8.5",
+    "dataloader": "^1.4.0",
     "express": "^4.16.4",
     "express-graphql": "^0.7.1",
-    "graphql": "^14.1.1",
-    "jquery": "^3.3.1",
-    "jsonwebtoken": "^8.5.0",
-    "mongoose": "^5.4.19",
-    "node-sass": "^4.11.0",
-    "popper.js": "^1.14.7",
-    "react": "^16.8.4",
-    "react-dom": "^16.8.4",
-    "react-router-dom": "^4.3.1",
-    "react-scripts": "^2.1.8"
+    "graphql": "^14.0.2",
+    "jsonwebtoken": "^8.4.0",
+    "mongoose": "^5.3.15"
   },
-  "scripts": {
-    "start": "node src/server/index.js",
-    "dev-start": "concurrently npm:react npm:server",
-    "react": "react-scripts start",
-    "server": "nodemon src/server/index.js",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ],
   "devDependencies": {
-    "concurrently": "^4.1.0",
-    "nodemon": "^1.18.10",
-    "terser": "^3.16.1"
+    "nodemon": "^1.18.7"
   }
 }

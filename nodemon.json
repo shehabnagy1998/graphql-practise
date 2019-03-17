@@ -1,8 +1,7 @@
 {
     "env": {
-        "PORT": "8080",
         "MONGO_USER": "shehab90",
-        "MONGO_PASS": "shehab80",
-        "MONGO_DB": "events_booking"
+        "MONGO_PASSWORD": "shehab80",
+        "MONGO_DB": "events-booking"
     }
 }
